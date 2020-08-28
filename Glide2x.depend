@@ -1,0 +1,253 @@
+# depslib dependency file v1.0
+1598636714 source:c:\msys32\home\admin\openglide\formatconversion.cpp
+	"FormatConversion.h"
+	"config.h"
+
+1598636663 c:\msys32\home\admin\openglide\formatconversion.h
+	"GlOgl.h"
+
+1598634817 c:\msys32\home\admin\openglide\glogl.h
+	"platform.h"
+	"platform/window.h"
+	<stdio.h>
+	"sdk2_glide.h"
+
+1598634817 c:\msys32\home\admin\openglide\platform\windows\platform.h
+	<windows.h>
+	<io.h>
+
+1598634817 c:\msys32\home\admin\openglide\platform\window.h
+	"config.h"
+	"sdk2_3dfx.h"
+	"SDL_opengl.h"
+	<OpenGL/gl.h>
+	<OpenGL/glu.h>
+	<GL/gl.h>
+	<GL/glu.h>
+
+1598637469 c:\msys32\home\admin\openglide\config.h
+
+1598637427 c:\msys32\home\admin\openglide\sdk2_3dfx.h
+	"sdk2_unix.h"
+
+1598637468 c:\msys32\home\admin\openglide\sdk2_unix.h
+
+1598651941 c:\msys32\home\admin\openglide\sdk2_glide.h
+	"sdk2_3dfx.h"
+	"sdk2_glidesys.h"
+	"sdk2_sst1vid.h"
+	"sdk2_glideutl.h"
+
+1598634817 c:\msys32\home\admin\openglide\sdk2_glidesys.h
+
+1598634817 c:\msys32\home\admin\openglide\sdk2_sst1vid.h
+
+1598634817 c:\msys32\home\admin\openglide\sdk2_glideutl.h
+
+1598634817 source:c:\msys32\home\admin\openglide\glextensions.cpp
+	<stdio.h>
+	<string.h>
+	<stdlib.h>
+	"GlOgl.h"
+	"GLRender.h"
+	"Glextensions.h"
+	"platform/openglext.h"
+	"platform/error.h"
+
+1598634817 c:\msys32\home\admin\openglide\glrender.h
+
+1598634817 c:\msys32\home\admin\openglide\glextensions.h
+	"glext.h"
+
+1598634817 c:\msys32\home\admin\openglide\glext.h
+	<windows.h>
+
+1598634817 c:\msys32\home\admin\openglide\platform\openglext.h
+	"platform.h"
+
+1598634817 c:\msys32\home\admin\openglide\platform\error.h
+
+1598635941 source:c:\msys32\home\admin\openglide\glrender.cpp
+	"GlOgl.h"
+	"GLRender.h"
+	"Glextensions.h"
+	"PGTexture.h"
+	<algorithm>
+
+1598634817 c:\msys32\home\admin\openglide\pgtexture.h
+	"sdk2_glide.h"
+	"TexDB.h"
+
+1598634817 c:\msys32\home\admin\openglide\texdb.h
+	"sdk2_glide.h"
+
+1598636724 source:c:\msys32\home\admin\openglide\glutil.cpp
+	<stdarg.h>
+	<stdlib.h>
+	<stdio.h>
+	<time.h>
+	"wrapper_config.h"
+	"GlOgl.h"
+	"Glextensions.h"
+	"OGLTables.h"
+	"platform.h"
+	"platform/window.h"
+	"platform/clock.h"
+
+1598634817 c:\msys32\home\admin\openglide\wrapper_config.h
+	"sdk2_3dfx.h"
+
+1598634817 c:\msys32\home\admin\openglide\ogltables.h
+	"GlOgl.h"
+	"GLRender.h"
+
+1598634817 c:\msys32\home\admin\openglide\platform\clock.h
+
+1598634817 source:c:\msys32\home\admin\openglide\glide.cpp
+	<stdio.h>
+	"GlOgl.h"
+	"Glextensions.h"
+	"PGTexture.h"
+	"PGUTexture.h"
+	"platform/error.h"
+
+1598634817 c:\msys32\home\admin\openglide\pgutexture.h
+	"sdk2_glide.h"
+
+1598634817 source:c:\msys32\home\admin\openglide\glide2x.rc
+	"resource.h"
+	"afxres.h"
+
+1598634817 c:\msys32\home\admin\openglide\resource.h
+
+1598634817 source:c:\msys32\home\admin\openglide\oglcoloralphatables.cpp
+	"GlOgl.h"
+	"GLRender.h"
+	"OGLTables.h"
+
+1598634817 source:c:\msys32\home\admin\openglide\oglfogtables.cpp
+	"OGLTables.h"
+
+1598634817 source:c:\msys32\home\admin\openglide\oglmisctables.cpp
+	"OGLTables.h"
+
+1598634817 source:c:\msys32\home\admin\openglide\ogltexturetables.cpp
+	"OGLTables.h"
+
+1598634817 source:c:\msys32\home\admin\openglide\pgtexture.cpp
+	"GlOgl.h"
+	"PGTexture.h"
+	"Glextensions.h"
+	"FormatConversion.h"
+	"OGLTables.h"
+
+1598634817 source:c:\msys32\home\admin\openglide\pgutexture.cpp
+	"GlOgl.h"
+	"PGTexture.h"
+	"PGUTexture.h"
+
+1598634817 source:c:\msys32\home\admin\openglide\texdb.cpp
+	"GlOgl.h"
+	"TexDB.h"
+
+1598634817 source:c:\msys32\home\admin\openglide\grgu3df.cpp
+	<string.h>
+	<stdio.h>
+	"GlOgl.h"
+
+1598634817 source:c:\msys32\home\admin\openglide\grgubuffer.cpp
+	<stdio.h>
+	"GlOgl.h"
+	"GLRender.h"
+	"platform/window.h"
+
+1598634817 source:c:\msys32\home\admin\openglide\grgucoloralpha.cpp
+	<math.h>
+	"GlOgl.h"
+	"GLRender.h"
+	"Glextensions.h"
+	"PGTexture.h"
+	"OGLTables.h"
+	"platform/window.h"
+
+1598634817 source:c:\msys32\home\admin\openglide\grgudepth.cpp
+	"GlOgl.h"
+	"GLRender.h"
+
+1598644710 source:c:\msys32\home\admin\openglide\grgudraw.cpp
+	"GlOgl.h"
+	"GLRender.h"
+
+1598634817 source:c:\msys32\home\admin\openglide\grgufog.cpp
+	<math.h>
+	"GlOgl.h"
+	"GLRender.h"
+	"OGLTables.h"
+
+1598634817 source:c:\msys32\home\admin\openglide\grgulfb.cpp
+	"GlOgl.h"
+	"Glextensions.h"
+	"GLRender.h"
+	"FormatConversion.h"
+
+1598636935 source:c:\msys32\home\admin\openglide\grgumisc.cpp
+	"GlOgl.h"
+	"GLRender.h"
+
+1598634817 source:c:\msys32\home\admin\openglide\grgusstglide.cpp
+	"platform.h"
+	"GlOgl.h"
+	"GLRender.h"
+	"PGTexture.h"
+	"OGLTables.h"
+
+1598634817 source:c:\msys32\home\admin\openglide\grgutex.cpp
+	"GlOgl.h"
+	"GLRender.h"
+	"Glextensions.h"
+	"PGTexture.h"
+	"PGUTexture.h"
+
+1598634817 source:c:\msys32\home\admin\openglide\platform\windows\clock.cpp
+	<windows.h>
+	"GlOgl.h"
+	"platform/clock.h"
+
+1598634817 source:c:\msys32\home\admin\openglide\platform\windows\error.cpp
+	<windows.h>
+	"platform/error.h"
+
+1598634817 source:c:\msys32\home\admin\openglide\platform\windows\library.cpp
+	<windows.h>
+	"GlOgl.h"
+
+1598634817 source:c:\msys32\home\admin\openglide\platform\windows\openglext.cpp
+	"config.h"
+	<windows.h>
+	"platform/openglext.h"
+
+1598634817 source:c:\msys32\home\admin\openglide\platform\windows\window.cpp
+	"config.h"
+	<windows.h>
+	<io.h>
+	<math.h>
+	"GlOgl.h"
+	"platform/window.h"
+
+1598652336 source:c:\msys32\home\admin\openglide\glide3funcs.cpp
+	<sdk2_glide.h>
+
+1598634817 source:c:\msys32\home\admin\openglide\platform\sdl\openglext.cpp
+	"config.h"
+	"SDL.h"
+	"platform/openglext.h"
+
+1598634817 source:c:\msys32\home\admin\openglide\platform\sdl\window.cpp
+	"config.h"
+	<stdlib.h>
+	<math.h>
+	"SDL.h"
+	"SDL_opengl.h"
+	"GlOgl.h"
+	"platform/window.h"
+

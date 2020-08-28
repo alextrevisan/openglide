@@ -1,0 +1,122 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes" ?>
+<CodeBlocks_project_file>
+	<FileVersion major="1" minor="6" />
+	<Project>
+		<Option title="Glide2x" />
+		<Option pch_mode="2" />
+		<Option compiler="gcc" />
+		<Build>
+			<Target title="Release Win32">
+				<Option output=".\Release\Glide2x" prefix_auto="1" extension_auto="1" />
+				<Option object_output="Release" />
+				<Option type="3" />
+				<Option compiler="gcc" />
+				<Option createDefFile="1" />
+				<Option createStaticLib="1" />
+				<Compiler>
+					<Add option="-W" />
+					<Add option="-DWIN32" />
+					<Add option="-DNDEBUG" />
+					<Add option="-D_WINDOWS" />
+					<Add option="-DCPPDLL" />
+					<Add option="-DHAVE_MMX" />
+				</Compiler>
+				<Linker>
+					<Add library="opengl32" />
+					<Add library="glu32" />
+					<Add library="mingw32" />
+					<Add library="SDL" />
+					<Add library="gdi32" />
+					<Add library="user32" />
+				</Linker>
+			</Target>
+			<Target title="Debug Win32">
+				<Option output=".\Debug\Glide2x" prefix_auto="1" extension_auto="1" />
+				<Option object_output="Debug" />
+				<Option type="3" />
+				<Option compiler="gcc" />
+				<Option createDefFile="1" />
+				<Option createStaticLib="1" />
+				<Compiler>
+					<Add option="-W" />
+					<Add option="-g" />
+					<Add option="-O0" />
+					<Add option="-DWIN32" />
+					<Add option="-D_DEBUG" />
+					<Add option="-DDEBUG" />
+					<Add option="-D_WINDOWS" />
+					<Add option="-DCPPDLL" />
+					<Add option="-DHAVE_MMX" />
+				</Compiler>
+				<Linker>
+					<Add library="odbc32" />
+					<Add library="odbccp32" />
+					<Add library="opengl32" />
+					<Add library="glu32" />
+					<Add library="ddraw" />
+					<Add library="opengl32" />
+				</Linker>
+			</Target>
+		</Build>
+		<Compiler>
+			<Add option="-mmmx" />
+			<Add option="-msse" />
+			<Add option="-DWIN32" />
+			<Add directory="platform" />
+			<Add directory="platform\windows" />
+			<Add directory="..\openglide" />
+		</Compiler>
+		<Linker>
+			<Add directory="..\..\..\usr\local\lib" />
+		</Linker>
+		<Unit filename="FormatConversion.cpp" />
+		<Unit filename="FormatConversion.h" />
+		<Unit filename="GLExtensions.cpp" />
+		<Unit filename="GLRender.cpp" />
+		<Unit filename="GLRender.h" />
+		<Unit filename="GLutil.cpp" />
+		<Unit filename="GlOgl.h" />
+		<Unit filename="Glextensions.h" />
+		<Unit filename="Glide.cpp" />
+		<Unit filename="Glide2x.rc">
+			<Option compilerVar="WINDRES" />
+		</Unit>
+		<Unit filename="OGLColorAlphaTables.cpp" />
+		<Unit filename="OGLFogTables.cpp" />
+		<Unit filename="OGLMiscTables.cpp" />
+		<Unit filename="OGLTables.h" />
+		<Unit filename="OGLTextureTables.cpp" />
+		<Unit filename="PGTexture.cpp" />
+		<Unit filename="PGTexture.h" />
+		<Unit filename="PGUTexture.cpp" />
+		<Unit filename="PGUTexture.h" />
+		<Unit filename="TexDB.cpp" />
+		<Unit filename="TexDB.h" />
+		<Unit filename="glext.h" />
+		<Unit filename="grgu3df.cpp" />
+		<Unit filename="grguBuffer.cpp" />
+		<Unit filename="grguColorAlpha.cpp" />
+		<Unit filename="grguDepth.cpp" />
+		<Unit filename="grguDraw.cpp" />
+		<Unit filename="grguFog.cpp" />
+		<Unit filename="grguLfb.cpp" />
+		<Unit filename="grguMisc.cpp" />
+		<Unit filename="grguSstGlide.cpp" />
+		<Unit filename="grguTex.cpp" />
+		<Unit filename="platform\windows\clock.cpp" />
+		<Unit filename="platform\windows\error.cpp" />
+		<Unit filename="platform\windows\library.cpp" />
+		<Unit filename="platform\windows\openglext.cpp" />
+		<Unit filename="platform\windows\window.cpp" />
+		<Unit filename="sdk2_3dfx.h" />
+		<Unit filename="sdk2_glide.h" />
+		<Unit filename="sdk2_glidesys.h" />
+		<Unit filename="sdk2_glideutl.h" />
+		<Unit filename="sdk2_sst1vid.h" />
+		<Extensions>
+			<code_completion />
+			<envvars />
+			<debugger />
+		</Extensions>
+	</Project>
+</CodeBlocks_project_file>
