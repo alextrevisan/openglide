@@ -95,7 +95,7 @@ typedef FxI32 GrCombineFunction_t;
 #define GR_COMBINE_FUNCTION_SCALE_OTHER 0x3
 #define GR_COMBINE_FUNCTION_BLEND_OTHER GR_COMBINE_FUNCTION_SCALE_OTHER
 #define GR_COMBINE_FUNCTION_SCALE_OTHER_ADD_LOCAL 0x4
-#define GR_COMBINE_FUNCTION_SCALE_OTHER_ADD_LOCAL_ALPHA 0x5 
+#define GR_COMBINE_FUNCTION_SCALE_OTHER_ADD_LOCAL_ALPHA 0x5
 #define GR_COMBINE_FUNCTION_SCALE_OTHER_MINUS_LOCAL 0x6
 #define GR_COMBINE_FUNCTION_SCALE_OTHER_MINUS_LOCAL_ADD_LOCAL 0x7
 #define GR_COMBINE_FUNCTION_BLEND GR_COMBINE_FUNCTION_SCALE_OTHER_MINUS_LOCAL_ADD_LOCAL
@@ -167,11 +167,11 @@ typedef FxI32 GrAlphaBlendFnc_t;
 #define GR_BLEND_SRC_ALPHA 0x1
 #define GR_BLEND_SRC_COLOR 0x2
 #define GR_BLEND_DST_COLOR GR_BLEND_SRC_COLOR
-#define GR_BLEND_DST_ALPHA 0x3 
+#define GR_BLEND_DST_ALPHA 0x3
 #define GR_BLEND_ONE 0x4
 #define GR_BLEND_ONE_MINUS_SRC_ALPHA 0x5
 #define GR_BLEND_ONE_MINUS_SRC_COLOR 0x6
-#define GR_BLEND_ONE_MINUS_DST_COLOR GR_BLEND_ONE_MINUS_SRC_COLOR 
+#define GR_BLEND_ONE_MINUS_DST_COLOR GR_BLEND_ONE_MINUS_SRC_COLOR
 #define GR_BLEND_ONE_MINUS_DST_ALPHA 0x7
 #define GR_BLEND_RESERVED_8 0x8
 #define GR_BLEND_RESERVED_9 0x9
@@ -325,7 +325,7 @@ typedef FxI32 GrOriginLocation_t;
 typedef struct {
     int                size;
     void               *lfbPtr;
-    FxU32              strideInBytes;        
+    FxU32              strideInBytes;
     GrLfbWriteMode_t   writeMode;
     GrOriginLocation_t origin;
 } GrLfbInfo_t;
@@ -462,7 +462,7 @@ typedef FxU32 GrCoordinateSpaceMode_t;
 #define GLIDE3_EXTRA_STATE      0
 #endif
 
-#define GLIDE_STATE_PAD_SIZE 312 + GLIDE3_EXTRA_STATE 
+#define GLIDE_STATE_PAD_SIZE 312 + GLIDE3_EXTRA_STATE
 
 #ifdef GLIDE_LIB
 typedef struct _GrState_s GrState;
@@ -689,7 +689,7 @@ typedef struct
   GrTextureFilterMode_t   minfilter_mode;       /* filtering to be used with minified  */
   GrTextureClampMode_t    s_clamp_mode;         /* how this texture should be clamped in s */
   GrTextureClampMode_t    t_clamp_mode;         /* how this texture should be clamped in t */
-  FxU32         tLOD;                   /* Register value for tLOD register */ 
+  FxU32         tLOD;                   /* Register value for tLOD register */
   FxU32         tTextureMode;           /* Register value for tTextureMode register
                                            not including non-texture specific bits */
   FxU32         lod_bias;               /* LOD bias of the mip map in preshifted 4.2*/
@@ -749,7 +749,7 @@ typedef struct {
 
 typedef struct GrSstPerfStats_s {
   FxU32  pixelsIn;              /* # pixels processed (minus buffer clears) */
-  FxU32  chromaFail;            /* # pixels not drawn due to chroma key */ 
+  FxU32  chromaFail;            /* # pixels not drawn due to chroma key */
   FxU32  zFuncFail;             /* # pixels not drawn due to Z comparison */
   FxU32  aFuncFail;             /* # pixels not drawn due to alpha comparison */
   FxU32  pixelsOut;             /* # pixels drawn (including buffer clears) */
@@ -758,7 +758,7 @@ typedef struct GrSstPerfStats_s {
 
 typedef struct {
   float  sow;                   /* s texture ordinate (s over w) */
-  float  tow;                   /* t texture ordinate (t over w) */  
+  float  tow;                   /* t texture ordinate (t over w) */
   float  oow;                   /* 1/w (used mipmapping - really 0xfff/w) */
 }  GrTmuVertex;
 
@@ -902,13 +902,16 @@ grDrawPolygonVertexList( int nverts, const GrVertex vlist[] );
 
 #ifdef GLIDE3
 FX_ENTRY void FX_CALL
-grDrawPoint( void *pt );
+//grDrawPoint( void *pt );
+grDrawPoint( const GrVertex *pt );
 
 FX_ENTRY void FX_CALL
-grDrawLine( void *v1, void *v2 );
+//grDrawLine( void *v1, void *v2 );
+grDrawLine( const GrVertex *v1, const GrVertex *v2 );
 
 FX_ENTRY void FX_CALL
-grDrawTriangle( void *a, void *b, void *c );
+//grDrawTriangle( void *a, void *b, void *c );
+grDrawTriangle( const GrVertex *a, const GrVertex *b, const GrVertex *c );
 
 #else
 FX_ENTRY void FX_CALL
@@ -943,37 +946,37 @@ grRenderBuffer( GrBuffer_t buffer );
 */
 typedef void (*GrErrorCallbackFnc_t)( const char *string, FxBool fatal );
 
-FX_ENTRY void FX_CALL 
+FX_ENTRY void FX_CALL
 grErrorSetCallback( GrErrorCallbackFnc_t fnc );
 
 /*
 ** SST routines
 */
 #ifdef GLIDE3
-FX_ENTRY void FX_CALL 
+FX_ENTRY void FX_CALL
 grFinish(void);
 #endif
 
 #if defined(GLIDE3) && defined(GLIDE3_ALPHA)
-FX_ENTRY void FX_CALL 
+FX_ENTRY void FX_CALL
 grFlush(void);
 #endif
 
 #ifndef GLIDE3_ALPHA
-FX_ENTRY void FX_CALL 
+FX_ENTRY void FX_CALL
 grSstIdle(void);
 
-FX_ENTRY FxU32 FX_CALL 
+FX_ENTRY FxU32 FX_CALL
 grSstVideoLine( void );
 
-FX_ENTRY FxBool FX_CALL 
+FX_ENTRY FxBool FX_CALL
 grSstVRetraceOn( void );
 
-FX_ENTRY FxBool FX_CALL 
+FX_ENTRY FxBool FX_CALL
 grSstIsBusy( void );
 #endif /* !GLIDE3_ALPHA */
 
-FX_ENTRY FxBool FX_CALL 
+FX_ENTRY FxBool FX_CALL
 grSstWinOpen(
           FxU                  hWnd,
           GrScreenResolution_t screen_resolution,
@@ -990,27 +993,27 @@ FX_ENTRY FxBool FX_CALL
 grSstControl( FxU32 code );
 
 #ifndef GLIDE3_ALPHA
-FX_ENTRY FxBool FX_CALL 
+FX_ENTRY FxBool FX_CALL
 grSstQueryHardware( GrHwConfiguration *hwconfig );
 
-FX_ENTRY FxBool FX_CALL 
+FX_ENTRY FxBool FX_CALL
 grSstQueryBoards( GrHwConfiguration *hwconfig );
 #endif /* !GLIDE3_ALPHA */
 
 FX_ENTRY void FX_CALL
 grSstOrigin(GrOriginLocation_t  origin);
 
-FX_ENTRY void FX_CALL 
+FX_ENTRY void FX_CALL
 grSstSelect( int which_sst );
 
 #ifndef GLIDE3_ALPHA
-FX_ENTRY FxU32 FX_CALL 
+FX_ENTRY FxU32 FX_CALL
 grSstScreenHeight( void );
 
-FX_ENTRY FxU32 FX_CALL 
+FX_ENTRY FxU32 FX_CALL
 grSstScreenWidth( void );
 
-FX_ENTRY FxU32 FX_CALL 
+FX_ENTRY FxU32 FX_CALL
 grSstStatus( void );
 #endif /* !GLIDE3_ALPHA */
 
@@ -1056,16 +1059,16 @@ grAlphaTestFunction( GrCmpFnc_t function );
 FX_ENTRY void FX_CALL
 grAlphaTestReferenceValue( GrAlpha_t value );
 
-FX_ENTRY void FX_CALL 
+FX_ENTRY void FX_CALL
 grChromakeyMode( GrChromakeyMode_t mode );
 
-FX_ENTRY void FX_CALL 
+FX_ENTRY void FX_CALL
 grChromakeyValue( GrColor_t value );
 
-FX_ENTRY void FX_CALL 
+FX_ENTRY void FX_CALL
 grClipWindow( FxU32 minx, FxU32 miny, FxU32 maxx, FxU32 maxy );
 
-FX_ENTRY void FX_CALL 
+FX_ENTRY void FX_CALL
 grColorCombine(
                GrCombineFunction_t function, GrCombineFactor_t factor,
                GrCombineLocal_t local, GrCombineOther_t other,
@@ -1074,47 +1077,47 @@ grColorCombine(
 FX_ENTRY void FX_CALL
 grColorMask( FxBool rgb, FxBool a );
 
-FX_ENTRY void FX_CALL 
+FX_ENTRY void FX_CALL
 grCullMode( GrCullMode_t mode );
 
-FX_ENTRY void FX_CALL 
+FX_ENTRY void FX_CALL
 grConstantColorValue( GrColor_t value );
 
-FX_ENTRY void FX_CALL 
+FX_ENTRY void FX_CALL
 grConstantColorValue4( float a, float r, float g, float b );
 
-FX_ENTRY void FX_CALL 
+FX_ENTRY void FX_CALL
 grDepthBiasLevel( FxI16 level );
 
-FX_ENTRY void FX_CALL 
+FX_ENTRY void FX_CALL
 grDepthBufferFunction( GrCmpFnc_t function );
 
-FX_ENTRY void FX_CALL 
+FX_ENTRY void FX_CALL
 grDepthBufferMode( GrDepthBufferMode_t mode );
 
-FX_ENTRY void FX_CALL 
+FX_ENTRY void FX_CALL
 grDepthMask( FxBool mask );
 
-FX_ENTRY void FX_CALL 
+FX_ENTRY void FX_CALL
 grDisableAllEffects( void );
 
-FX_ENTRY void FX_CALL 
+FX_ENTRY void FX_CALL
 grDitherMode( GrDitherMode_t mode );
 
-FX_ENTRY void FX_CALL 
+FX_ENTRY void FX_CALL
 grFogColorValue( GrColor_t fogcolor );
 
-FX_ENTRY void FX_CALL 
+FX_ENTRY void FX_CALL
 grFogMode( GrFogMode_t mode );
 
-FX_ENTRY void FX_CALL 
+FX_ENTRY void FX_CALL
 grFogTable( const GrFog_t ft[] );
 
-FX_ENTRY void FX_CALL 
+FX_ENTRY void FX_CALL
 grGammaCorrectionValue( float value );
 
 #if defined(GLIDE3) && defined(GLIDE3_ALPHA)
-FX_ENTRY void FX_CALL 
+FX_ENTRY void FX_CALL
 grLoadGammaTable( FxU32 nentries, FxU32 *red, FxU32 *green, FxU32 *blue);
 #endif
 
@@ -1122,80 +1125,80 @@ FX_ENTRY void FX_CALL
 grSplash(float x, float y, float width, float height, FxU32 frame);
 
 #ifdef GLIDE3
-FX_ENTRY FxBool FX_CALL 
+FX_ENTRY FxBool FX_CALL
 grGet( FxU32 pname, FxU32 plength, FxI32 *params );
 
-FX_ENTRY const char * FX_CALL 
+FX_ENTRY const char * FX_CALL
 grGetString( FxU32 pname );
 
-FX_ENTRY FxBool FX_CALL 
+FX_ENTRY FxBool FX_CALL
 grReset( FxU32 what );
 
 FX_ENTRY GrProc FX_CALL
 grGetProcAddress( char *procName );
 
-FX_ENTRY void FX_CALL 
+FX_ENTRY void FX_CALL
 grEnable( GrEnableMode_t mode );
 
-FX_ENTRY void FX_CALL 
+FX_ENTRY void FX_CALL
 grDisable( GrEnableMode_t mode );
 
-FX_ENTRY void FX_CALL 
+FX_ENTRY void FX_CALL
 grCoordinateSpace( GrCoordinateSpaceMode_t mode );
 
-FX_ENTRY void FX_CALL 
+FX_ENTRY void FX_CALL
 grDepthRange( FxFloat n, FxFloat f );
 
-FX_ENTRY void FX_CALL 
+FX_ENTRY void FX_CALL
 grViewport( FxI32 x, FxI32 y, FxI32 width, FxI32 height );
 
 #endif
 /*
 ** texture mapping control functions
 */
-FX_ENTRY FxU32 FX_CALL 
+FX_ENTRY FxU32 FX_CALL
 grTexCalcMemRequired(
                      GrLOD_t lodmin, GrLOD_t lodmax,
                      GrAspectRatio_t aspect, GrTextureFormat_t fmt);
 
-FX_ENTRY FxU32 FX_CALL 
+FX_ENTRY FxU32 FX_CALL
 grTexTextureMemRequired( FxU32     evenOdd,
                                  GrTexInfo *info   );
 
-FX_ENTRY FxU32 FX_CALL 
+FX_ENTRY FxU32 FX_CALL
 grTexMinAddress( GrChipID_t tmu );
 
 
-FX_ENTRY FxU32 FX_CALL 
+FX_ENTRY FxU32 FX_CALL
 grTexMaxAddress( GrChipID_t tmu );
 
 
 #if defined(GLIDE3) && defined(GLIDE3_ALPHA)
-FX_ENTRY void FX_CALL 
+FX_ENTRY void FX_CALL
 grTexNCCTable( GrNCCTable_t table );
 #else
-FX_ENTRY void FX_CALL 
+FX_ENTRY void FX_CALL
 grTexNCCTable( GrChipID_t tmu, GrNCCTable_t table );
 #endif
 
-FX_ENTRY void FX_CALL 
+FX_ENTRY void FX_CALL
 grTexSource( GrChipID_t tmu,
              FxU32      startAddress,
              FxU32      evenOdd,
              GrTexInfo  *info );
 
-FX_ENTRY void FX_CALL 
+FX_ENTRY void FX_CALL
 grTexClampMode(
                GrChipID_t tmu,
                GrTextureClampMode_t s_clampmode,
                GrTextureClampMode_t t_clampmode
                );
 
-FX_ENTRY void FX_CALL 
+FX_ENTRY void FX_CALL
 grTexCombine(
              GrChipID_t tmu,
              GrCombineFunction_t rgb_function,
-             GrCombineFactor_t rgb_factor, 
+             GrCombineFactor_t rgb_factor,
              GrCombineFunction_t alpha_function,
              GrCombineFactor_t alpha_factor,
              FxBool rgb_invert,
@@ -1203,14 +1206,14 @@ grTexCombine(
              );
 
 #ifndef GLIDE3_ALPHA
-FX_ENTRY void FX_CALL 
+FX_ENTRY void FX_CALL
 grTexCombineFunction(
                      GrChipID_t tmu,
                      GrTextureCombineFnc_t fnc
                      );
 #endif
 
-FX_ENTRY void FX_CALL 
+FX_ENTRY void FX_CALL
 grTexDetailControl(
                    GrChipID_t tmu,
                    int lod_bias,
@@ -1218,7 +1221,7 @@ grTexDetailControl(
                    float detail_max
                    );
 
-FX_ENTRY void FX_CALL 
+FX_ENTRY void FX_CALL
 grTexFilterMode(
                 GrChipID_t tmu,
                 GrTextureFilterMode_t minfilter_mode,
@@ -1226,16 +1229,16 @@ grTexFilterMode(
                 );
 
 
-FX_ENTRY void FX_CALL 
+FX_ENTRY void FX_CALL
 grTexLodBiasValue(GrChipID_t tmu, float bias );
 
-FX_ENTRY void FX_CALL 
+FX_ENTRY void FX_CALL
 grTexDownloadMipMap( GrChipID_t tmu,
                      FxU32      startAddress,
                      FxU32      evenOdd,
                      GrTexInfo  *info );
 
-FX_ENTRY void FX_CALL 
+FX_ENTRY void FX_CALL
 grTexDownloadMipMapLevel( GrChipID_t        tmu,
                           FxU32             startAddress,
                           GrLOD_t           thisLod,
@@ -1245,7 +1248,7 @@ grTexDownloadMipMapLevel( GrChipID_t        tmu,
                           FxU32             evenOdd,
                           void              *data );
 
-FX_ENTRY void FX_CALL 
+FX_ENTRY void FX_CALL
 grTexDownloadMipMapLevelPartial( GrChipID_t        tmu,
                                  FxU32             startAddress,
                                  GrLOD_t           thisLod,
@@ -1258,7 +1261,7 @@ grTexDownloadMipMapLevelPartial( GrChipID_t        tmu,
                                  int               end );
 
 
-FX_ENTRY void FX_CALL 
+FX_ENTRY void FX_CALL
 ConvertAndDownloadRle( GrChipID_t        tmu,
                         FxU32             startAddress,
                         GrLOD_t           thisLod,
@@ -1276,39 +1279,39 @@ ConvertAndDownloadRle( GrChipID_t        tmu,
                         FxU32             dest_height,
                         FxU16             *tlut);
 
-FX_ENTRY void FX_CALL 
+FX_ENTRY void FX_CALL
 grCheckForRoom(FxI32 n);
 
 #if defined(GLIDE3) && defined(GLIDE3_ALPHA)
 FX_ENTRY void FX_CALL
-grTexDownloadTable( GrTexTable_t type, 
+grTexDownloadTable( GrTexTable_t type,
                     void         *data );
 
 FX_ENTRY void FX_CALL
-grTexDownloadTablePartial( GrTexTable_t type, 
+grTexDownloadTablePartial( GrTexTable_t type,
                            void         *data,
                            int          start,
                            int          end );
 #else
 FX_ENTRY void FX_CALL
 grTexDownloadTable( GrChipID_t   tmu,
-                    GrTexTable_t type, 
+                    GrTexTable_t type,
                     void         *data );
 
 FX_ENTRY void FX_CALL
 grTexDownloadTablePartial( GrChipID_t   tmu,
-                           GrTexTable_t type, 
+                           GrTexTable_t type,
                            void         *data,
                            int          start,
                            int          end );
 #endif
 
-FX_ENTRY void FX_CALL 
-grTexMipMapMode( GrChipID_t     tmu, 
+FX_ENTRY void FX_CALL
+grTexMipMapMode( GrChipID_t     tmu,
                  GrMipMapMode_t mode,
                  FxBool         lodBlend );
 
-FX_ENTRY void FX_CALL 
+FX_ENTRY void FX_CALL
 grTexMultibase( GrChipID_t tmu,
                 FxBool     enable );
 
@@ -1324,7 +1327,7 @@ grTexMultibaseAddress( GrChipID_t       tmu,
 */
 
 #ifndef GLIDE3_ALPHA
-FX_ENTRY GrMipMapId_t FX_CALL 
+FX_ENTRY GrMipMapId_t FX_CALL
 guTexAllocateMemory(
                     GrChipID_t tmu,
                     FxU8 odd_even_mask,
@@ -1341,7 +1344,7 @@ guTexAllocateMemory(
                     FxBool trilinear
                     );
 
-FX_ENTRY FxBool FX_CALL 
+FX_ENTRY FxBool FX_CALL
 guTexChangeAttributes(
                       GrMipMapId_t mmid,
                       int width, int height,
@@ -1355,38 +1358,38 @@ guTexChangeAttributes(
                       GrTextureFilterMode_t magFilterMode
                       );
 
-FX_ENTRY void FX_CALL 
+FX_ENTRY void FX_CALL
 guTexCombineFunction(
                      GrChipID_t tmu,
                      GrTextureCombineFnc_t fnc
                      );
 
-FX_ENTRY GrMipMapId_t FX_CALL 
+FX_ENTRY GrMipMapId_t FX_CALL
 guTexGetCurrentMipMap( GrChipID_t tmu );
 
-FX_ENTRY GrMipMapInfo * FX_CALL 
+FX_ENTRY GrMipMapInfo * FX_CALL
 guTexGetMipMapInfo( GrMipMapId_t mmid );
 
-FX_ENTRY FxU32 FX_CALL 
+FX_ENTRY FxU32 FX_CALL
 guTexMemQueryAvail( GrChipID_t tmu );
 
-FX_ENTRY void FX_CALL 
+FX_ENTRY void FX_CALL
 guTexMemReset( void );
 
-FX_ENTRY void FX_CALL 
+FX_ENTRY void FX_CALL
 guTexDownloadMipMap(
                     GrMipMapId_t mmid,
                     const void *src,
                     const GuNccTable *table
                     );
 
-FX_ENTRY void FX_CALL 
+FX_ENTRY void FX_CALL
 guTexDownloadMipMapLevel(
                          GrMipMapId_t mmid,
                          GrLOD_t lod,
                          const void **src
                          );
-FX_ENTRY void FX_CALL 
+FX_ENTRY void FX_CALL
 guTexSource( GrMipMapId_t id );
 #endif /* !GLIDE3_ALPHA */
 
@@ -1396,19 +1399,19 @@ guTexSource( GrMipMapId_t id );
 
 FX_ENTRY FxBool FX_CALL
 grLfbLock( GrLock_t type, GrBuffer_t buffer, GrLfbWriteMode_t writeMode,
-           GrOriginLocation_t origin, FxBool pixelPipeline, 
+           GrOriginLocation_t origin, FxBool pixelPipeline,
            GrLfbInfo_t *info );
 
 FX_ENTRY FxBool FX_CALL
 grLfbUnlock( GrLock_t type, GrBuffer_t buffer );
 
-FX_ENTRY void FX_CALL 
+FX_ENTRY void FX_CALL
 grLfbConstantAlpha( GrAlpha_t alpha );
 
-FX_ENTRY void FX_CALL 
+FX_ENTRY void FX_CALL
 grLfbConstantDepth( FxU16 depth );
 
-FX_ENTRY void FX_CALL 
+FX_ENTRY void FX_CALL
 grLfbWriteColorSwizzle(FxBool swizzleBytes, FxBool swapWords);
 
 FX_ENTRY void FX_CALL
@@ -1416,18 +1419,18 @@ grLfbWriteColorFormat(GrColorFormat_t colorFormat);
 
 #if defined(GLIDE3) && defined(GLIDE3_ALPHA)
 FX_ENTRY FxBool FX_CALL
-grLfbWriteRegion( GrBuffer_t dst_buffer, 
-                  FxU32 dst_x, FxU32 dst_y, 
-                  GrLfbSrcFmt_t src_format, 
-                  FxU32 src_width, FxU32 src_height, 
+grLfbWriteRegion( GrBuffer_t dst_buffer,
+                  FxU32 dst_x, FxU32 dst_y,
+                  GrLfbSrcFmt_t src_format,
+                  FxU32 src_width, FxU32 src_height,
                   FxBool pixelPipeline,
                   FxI32 src_stride, void *src_data );
 #else
 FX_ENTRY FxBool FX_CALL
-grLfbWriteRegion( GrBuffer_t dst_buffer, 
-                  FxU32 dst_x, FxU32 dst_y, 
-                  GrLfbSrcFmt_t src_format, 
-                  FxU32 src_width, FxU32 src_height, 
+grLfbWriteRegion( GrBuffer_t dst_buffer,
+                  FxU32 dst_x, FxU32 dst_y,
+                  GrLfbSrcFmt_t src_format,
+                  FxU32 src_width, FxU32 src_height,
                   FxI32 src_stride, void *src_data );
 #endif
 
@@ -1495,13 +1498,13 @@ grHints(GrHint_t hintType, FxU32 hintMask);
 FX_ENTRY void FX_CALL
 grVertexLayout(FxU32 param, FxI32 offset, FxU32 mode);
 
-FX_ENTRY void FX_CALL 
+FX_ENTRY void FX_CALL
 grDrawVertexArray(FxU32 mode, FxU32 Count, void *pointers);
 
-FX_ENTRY void FX_CALL 
+FX_ENTRY void FX_CALL
 grDrawVertexArrayLinear(FxU32 mode, FxU32 Count, void *pointers, FxU32 stride);
 
-FX_ENTRY void FX_CALL 
+FX_ENTRY void FX_CALL
 grDrawVertexArrayLinear(FxU32 mode, FxU32 Count, void *pointers, FxU32 stride);
 
 #endif

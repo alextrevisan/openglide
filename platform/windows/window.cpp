@@ -58,8 +58,8 @@ bool InitialiseOpenGLWindow(FxU wnd, int x, int y, int width, int height)
 
     if ( UserConfig.InitFullScreen )
     {
-        SetWindowLong( hwnd, 
-                       GWL_STYLE, 
+        SetWindowLong( hwnd,
+                       GWL_STYLE,
                        WS_POPUP | WS_VISIBLE | WS_CLIPCHILDREN | WS_CLIPSIBLINGS );
         MoveWindow( hwnd, 0, 0, width, height, false );
         mode_changed = SetScreenMode( width, height );
@@ -72,19 +72,19 @@ bool InitialiseOpenGLWindow(FxU wnd, int x, int y, int width, int height)
        rect.top = 0;
        rect.bottom = height;
 
-       AdjustWindowRectEx( &rect, 
+       AdjustWindowRectEx( &rect,
                            GetWindowLong( hwnd, GWL_STYLE ),
                            GetMenu( hwnd ) != NULL,
                            GetWindowLong( hwnd, GWL_EXSTYLE ) );
-       MoveWindow( hwnd, 
-                   x, y, 
+       MoveWindow( hwnd,
+                   x, y,
                    x + ( rect.right - rect.left ),
                    y + ( rect.bottom - rect.top ),
                    true );
     }
 
     hWND = hwnd;
-
+    ReleaseDC(hwnd, NULL);
     hDC = GetDC( hwnd );
     BitsPerPixel = GetDeviceCaps( hDC, BITSPIXEL );
 
@@ -101,7 +101,7 @@ bool InitialiseOpenGLWindow(FxU wnd, int x, int y, int width, int height)
         MessageBox( NULL, "ChoosePixelFormat() failed:  "
                     "Cannot find a suitable pixel format.", "Error", MB_OK );
         exit( 1 );
-    } 
+    }
 
     // the window must have WS_CLIPCHILDREN and WS_CLIPSIBLINGS for this call to
     // work correctly, so we SHOULD set this attributes, not doing that yet
@@ -110,7 +110,7 @@ bool InitialiseOpenGLWindow(FxU wnd, int x, int y, int width, int height)
         MessageBox( NULL, "SetPixelFormat() failed:  "
                     "Cannot set format specified.", "Error", MB_OK );
         exit( 1 );
-    } 
+    }
 
     DescribePixelFormat( hDC, PixFormat, sizeof( PIXELFORMATDESCRIPTOR ), &pfd );
     GlideMsg( "ColorBits	= %d\n", pfd.cColorBits );
@@ -190,22 +190,22 @@ bool SetScreenMode(int &xsize, int &ysize)
     hdc = GetDC( hWND );
     bits_per_pixel = GetDeviceCaps( hdc, BITSPIXEL );
     ReleaseDC( hWND, hdc );
-    
+
     found = false;
     DevMode.dmSize = sizeof( DEVMODE );
-    
-    for ( int i = 0; 
-          !found && EnumDisplaySettings( NULL, i, &DevMode ) != false; 
+
+    for ( int i = 0;
+          !found && EnumDisplaySettings( NULL, i, &DevMode ) != false;
           i++ )
     {
-        if ( ( DevMode.dmPelsWidth == (FxU32)xsize ) && 
-             ( DevMode.dmPelsHeight == (FxU32)ysize ) && 
+        if ( ( DevMode.dmPelsWidth == (FxU32)xsize ) &&
+             ( DevMode.dmPelsHeight == (FxU32)ysize ) &&
              ( DevMode.dmBitsPerPel == bits_per_pixel ) )
         {
             found = true;
         }
     }
-    
+
     return ( found && ChangeDisplaySettings( &DevMode, CDS_RESET|CDS_FULLSCREEN ) == DISP_CHANGE_SUCCESSFUL );
 }
 

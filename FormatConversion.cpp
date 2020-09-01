@@ -1,5 +1,5 @@
 #include "FormatConversion.h"
-
+#undef HAVE_MMX
 #ifdef __GNUC__
 #   ifdef HAVE_CONFIG_H
 #   include "config.h"
@@ -74,7 +74,7 @@ copying:
         psllq mm0, 1
         por mm1, mm2
         por mm0, mm1
-        
+
         movq [edx + ecx], mm0
         sub ecx, 8
         jge copying
@@ -158,7 +158,7 @@ copying:
         pand mm2, mm4
         psrlq mm0, 1
         por mm0, mm2
-        
+
       movq [edx + ecx], mm0
       sub ecx, 8
       jge copying
@@ -238,7 +238,7 @@ copying:
         psllq mm0, 4
         psrlq mm1, 12
         por mm0, mm1
-        
+
       movq [edx + ecx], mm0
       sub ecx, 8
       jge copying
@@ -321,7 +321,7 @@ copying:
         psllq mm0, 1
         psrlq mm1, 15
         por mm0, mm1
-        
+
       movq [edx + ecx], mm0
       sub ecx, 8
       jge copying
@@ -417,7 +417,7 @@ copying:
       PUNPCKHBW MM0, MM1
       PUNPCKLBW MM2, MM1
 
-      // Storing Unpacked 
+      // Storing Unpacked
       MOVQ [EDX], MM2
       add EDX, 16
       MOVQ [EDX-8], MM0
@@ -504,9 +504,9 @@ void ConvertA8toAP88( FxU8 *Buffer1, FxU16 *Buffer2, FxU32 Pixels )
 
 void Convert8332to8888( FxU16 *Buffer1, FxU32 *Buffer2, FxU32 Pixels )
 {
-    static FxU32    R, 
-                    G, 
-                    B, 
+    static FxU32    R,
+                    G,
+                    B,
                     A;
     for ( FxU32 i = Pixels; i > 0; i-- )
     {
@@ -540,7 +540,7 @@ void ConvertAI44toAP88( FxU8 *Buffer1, FxU16 *Buffer2, FxU32 Pixels )
 
 void ConvertAP88to8888( FxU16 *Buffer1, FxU32 *Buffer2, FxU32 Pixels, FxU32 *palette )
 {
-    FxU32   RGB, 
+    FxU32   RGB,
             A;
     for ( FxU32 i = Pixels; i > 0; i-- )
     {

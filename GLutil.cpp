@@ -14,7 +14,7 @@
 #include <stdlib.h>
 #include <stdio.h>
 #include <time.h>
-
+#undef HAVE_MMX
 #include "wrapper_config.h"
 #include "GlOgl.h"
 #include "Glextensions.h"
@@ -225,7 +225,7 @@ static char * FindConfig( const char *IniFile, const char *IniConfig )
     // Cannot return pointer to local buffer, unless
     // static.
     static char Buffer1[ 256 ];
-    char    * EqLocation, 
+    char    * EqLocation,
             * Find;
     FILE    * file;
 
@@ -235,7 +235,7 @@ static char * FindConfig( const char *IniFile, const char *IniConfig )
     while ( fgets( Buffer1, 255, file ) != NULL )
     {
         if ( ( EqLocation = strchr( Buffer1, '=' ) ) != NULL )
-        {       
+        {
             if ( !strncmp( Buffer1, IniConfig, EqLocation - Buffer1 ) )
             {
                 Find = EqLocation + 1;
@@ -289,7 +289,7 @@ void GetOptions( void )
     strcpy( Path, INIFILE );
 
     GlideMsg( "Configuration file is %s\n", Path );
-    
+
     if ( access( Path, 0 ) == -1 )
     {
         IniFile = fopen( Path, "w" );

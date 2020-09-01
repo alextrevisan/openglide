@@ -1,0 +1,251 @@
+window.lo: window.cpp ../../config.h \
+ c:\mingw\lib\gcc\mingw32\9.2.0\include\c++\stdlib.h \
+ c:\mingw\lib\gcc\mingw32\9.2.0\include\c++\cstdlib \
+ c:\mingw\lib\gcc\mingw32\9.2.0\include\c++\mingw32\bits\c++config.h \
+ c:\mingw\lib\gcc\mingw32\9.2.0\include\c++\mingw32\bits\os_defines.h \
+ c:\mingw\lib\gcc\mingw32\9.2.0\include\c++\mingw32\bits\cpu_defines.h \
+ c:\mingw\include\stdlib.h c:\mingw\include\_mingw.h \
+ c:\mingw\include\msvcrtver.h c:\mingw\include\w32api.h \
+ c:\mingw\include\sdkddkver.h c:\mingw\include\features.h \
+ c:\mingw\lib\gcc\mingw32\9.2.0\include\stddef.h c:\mingw\include\errno.h \
+ c:\mingw\include\alloca.h \
+ c:\mingw\lib\gcc\mingw32\9.2.0\include\c++\bits\std_abs.h \
+ c:\mingw\lib\gcc\mingw32\9.2.0\include\c++\math.h \
+ c:\mingw\lib\gcc\mingw32\9.2.0\include\c++\cmath \
+ c:\mingw\lib\gcc\mingw32\9.2.0\include\c++\bits\cpp_type_traits.h \
+ c:\mingw\lib\gcc\mingw32\9.2.0\include\c++\ext\type_traits.h \
+ c:\mingw\include\math.h C:/msys32/usr/local/include/SDL/SDL.h \
+ C:/msys32/usr/local/include/SDL/SDL_main.h \
+ C:/msys32/usr/local/include/SDL/SDL_stdinc.h \
+ C:/msys32/usr/local/include/SDL/SDL_config.h \
+ C:/msys32/usr/local/include/SDL/SDL_platform.h \
+ c:\mingw\include\sys\types.h c:\mingw\include\stdio.h \
+ c:\mingw\include\sys/types.h \
+ c:\mingw\lib\gcc\mingw32\9.2.0\include\stdarg.h \
+ c:\mingw\include\string.h c:\mingw\include\strings.h \
+ c:\mingw\include\wchar.h c:\mingw\include\inttypes.h \
+ c:\mingw\lib\gcc\mingw32\9.2.0\include\stdint.h \
+ c:\mingw\include\stdint.h c:\mingw\include\ctype.h \
+ c:\mingw\include\wctype.h C:/msys32/usr/local/include/SDL/begin_code.h \
+ C:/msys32/usr/local/include/SDL/close_code.h \
+ C:/msys32/usr/local/include/SDL/SDL_audio.h \
+ C:/msys32/usr/local/include/SDL/SDL_error.h \
+ C:/msys32/usr/local/include/SDL/SDL_endian.h \
+ C:/msys32/usr/local/include/SDL/SDL_mutex.h \
+ C:/msys32/usr/local/include/SDL/SDL_thread.h \
+ C:/msys32/usr/local/include/SDL/SDL_rwops.h \
+ C:/msys32/usr/local/include/SDL/SDL_cdrom.h \
+ C:/msys32/usr/local/include/SDL/SDL_cpuinfo.h \
+ C:/msys32/usr/local/include/SDL/SDL_events.h \
+ C:/msys32/usr/local/include/SDL/SDL_active.h \
+ C:/msys32/usr/local/include/SDL/SDL_keyboard.h \
+ C:/msys32/usr/local/include/SDL/SDL_keysym.h \
+ C:/msys32/usr/local/include/SDL/SDL_mouse.h \
+ C:/msys32/usr/local/include/SDL/SDL_video.h \
+ C:/msys32/usr/local/include/SDL/SDL_joystick.h \
+ C:/msys32/usr/local/include/SDL/SDL_quit.h \
+ C:/msys32/usr/local/include/SDL/SDL_loadso.h \
+ C:/msys32/usr/local/include/SDL/SDL_timer.h \
+ C:/msys32/usr/local/include/SDL/SDL_version.h \
+ C:/msys32/usr/local/include/SDL/SDL_opengl.h c:\mingw\include\windows.h \
+ c:\mingw\include\windef.h c:\mingw\include\winnt.h \
+ c:\mingw\include\winerror.h c:\mingw\include\basetsd.h \
+ c:\mingw\include\pshpack4.h c:\mingw\include\poppack.h \
+ c:\mingw\include\wincon.h c:\mingw\include\winbase.h \
+ c:\mingw\include\wingdi.h c:\mingw\include\winuser.h \
+ c:\mingw\include\dbt.h c:\mingw\include\winnls.h \
+ c:\mingw\include\winver.h c:\mingw\include\winnetwk.h \
+ c:\mingw\include\winreg.h c:\mingw\include\reason.h \
+ c:\mingw\include\winsvc.h c:\mingw\include\gl\gl.h \
+ c:\mingw\include\gl\glu.h ../../GlOgl.h \
+ ../../platform/windows/platform.h c:\mingw\include\io.h \
+ c:\mingw\include\stdint.h ../../platform/window.h ../../sdk2_3dfx.h \
+ ../../sdk2_unix.h ../../sdk2_glide.h ../../sdk2_3dfx.h \
+ ../../sdk2_glidesys.h ../../sdk2_sst1vid.h ../../sdk2_glideutl.h \
+ ../../platform/window.h
+
+../../config.h:
+
+c:\mingw\lib\gcc\mingw32\9.2.0\include\c++\stdlib.h:
+
+c:\mingw\lib\gcc\mingw32\9.2.0\include\c++\cstdlib:
+
+c:\mingw\lib\gcc\mingw32\9.2.0\include\c++\mingw32\bits\c++config.h:
+
+c:\mingw\lib\gcc\mingw32\9.2.0\include\c++\mingw32\bits\os_defines.h:
+
+c:\mingw\lib\gcc\mingw32\9.2.0\include\c++\mingw32\bits\cpu_defines.h:
+
+c:\mingw\include\stdlib.h:
+
+c:\mingw\include\_mingw.h:
+
+c:\mingw\include\msvcrtver.h:
+
+c:\mingw\include\w32api.h:
+
+c:\mingw\include\sdkddkver.h:
+
+c:\mingw\include\features.h:
+
+c:\mingw\lib\gcc\mingw32\9.2.0\include\stddef.h:
+
+c:\mingw\include\errno.h:
+
+c:\mingw\include\alloca.h:
+
+c:\mingw\lib\gcc\mingw32\9.2.0\include\c++\bits\std_abs.h:
+
+c:\mingw\lib\gcc\mingw32\9.2.0\include\c++\math.h:
+
+c:\mingw\lib\gcc\mingw32\9.2.0\include\c++\cmath:
+
+c:\mingw\lib\gcc\mingw32\9.2.0\include\c++\bits\cpp_type_traits.h:
+
+c:\mingw\lib\gcc\mingw32\9.2.0\include\c++\ext\type_traits.h:
+
+c:\mingw\include\math.h:
+
+C:/msys32/usr/local/include/SDL/SDL.h:
+
+C:/msys32/usr/local/include/SDL/SDL_main.h:
+
+C:/msys32/usr/local/include/SDL/SDL_stdinc.h:
+
+C:/msys32/usr/local/include/SDL/SDL_config.h:
+
+C:/msys32/usr/local/include/SDL/SDL_platform.h:
+
+c:\mingw\include\sys\types.h:
+
+c:\mingw\include\stdio.h:
+
+c:\mingw\include\sys/types.h:
+
+c:\mingw\lib\gcc\mingw32\9.2.0\include\stdarg.h:
+
+c:\mingw\include\string.h:
+
+c:\mingw\include\strings.h:
+
+c:\mingw\include\wchar.h:
+
+c:\mingw\include\inttypes.h:
+
+c:\mingw\lib\gcc\mingw32\9.2.0\include\stdint.h:
+
+c:\mingw\include\stdint.h:
+
+c:\mingw\include\ctype.h:
+
+c:\mingw\include\wctype.h:
+
+C:/msys32/usr/local/include/SDL/begin_code.h:
+
+C:/msys32/usr/local/include/SDL/close_code.h:
+
+C:/msys32/usr/local/include/SDL/SDL_audio.h:
+
+C:/msys32/usr/local/include/SDL/SDL_error.h:
+
+C:/msys32/usr/local/include/SDL/SDL_endian.h:
+
+C:/msys32/usr/local/include/SDL/SDL_mutex.h:
+
+C:/msys32/usr/local/include/SDL/SDL_thread.h:
+
+C:/msys32/usr/local/include/SDL/SDL_rwops.h:
+
+C:/msys32/usr/local/include/SDL/SDL_cdrom.h:
+
+C:/msys32/usr/local/include/SDL/SDL_cpuinfo.h:
+
+C:/msys32/usr/local/include/SDL/SDL_events.h:
+
+C:/msys32/usr/local/include/SDL/SDL_active.h:
+
+C:/msys32/usr/local/include/SDL/SDL_keyboard.h:
+
+C:/msys32/usr/local/include/SDL/SDL_keysym.h:
+
+C:/msys32/usr/local/include/SDL/SDL_mouse.h:
+
+C:/msys32/usr/local/include/SDL/SDL_video.h:
+
+C:/msys32/usr/local/include/SDL/SDL_joystick.h:
+
+C:/msys32/usr/local/include/SDL/SDL_quit.h:
+
+C:/msys32/usr/local/include/SDL/SDL_loadso.h:
+
+C:/msys32/usr/local/include/SDL/SDL_timer.h:
+
+C:/msys32/usr/local/include/SDL/SDL_version.h:
+
+C:/msys32/usr/local/include/SDL/SDL_opengl.h:
+
+c:\mingw\include\windows.h:
+
+c:\mingw\include\windef.h:
+
+c:\mingw\include\winnt.h:
+
+c:\mingw\include\winerror.h:
+
+c:\mingw\include\basetsd.h:
+
+c:\mingw\include\pshpack4.h:
+
+c:\mingw\include\poppack.h:
+
+c:\mingw\include\wincon.h:
+
+c:\mingw\include\winbase.h:
+
+c:\mingw\include\wingdi.h:
+
+c:\mingw\include\winuser.h:
+
+c:\mingw\include\dbt.h:
+
+c:\mingw\include\winnls.h:
+
+c:\mingw\include\winver.h:
+
+c:\mingw\include\winnetwk.h:
+
+c:\mingw\include\winreg.h:
+
+c:\mingw\include\reason.h:
+
+c:\mingw\include\winsvc.h:
+
+c:\mingw\include\gl\gl.h:
+
+c:\mingw\include\gl\glu.h:
+
+../../GlOgl.h:
+
+../../platform/windows/platform.h:
+
+c:\mingw\include\io.h:
+
+c:\mingw\include\stdint.h:
+
+../../platform/window.h:
+
+../../sdk2_3dfx.h:
+
+../../sdk2_unix.h:
+
+../../sdk2_glide.h:
+
+../../sdk2_3dfx.h:
+
+../../sdk2_glidesys.h:
+
+../../sdk2_sst1vid.h:
+
+../../sdk2_glideutl.h:
+
+../../platform/window.h:

@@ -63,7 +63,7 @@ grDrawLine( const GrVertex *a, const GrVertex *b )
 #ifdef OGL_CRITICAL
     GlideMsg("grDrawLine( ---, --- )\n");
 #endif
-    
+
    /*
     * RenderAddLine actually renders the line, so
     * we must render the queued triangles first to
@@ -98,8 +98,8 @@ grDrawPolygon( int nverts, const int ilist[], const GrVertex vlist[] )
 
     for ( int i = 2; i < nverts; i++ )
     {
-        RenderAddTriangle( &vlist[ ilist[ 0 ] ], 
-                           &vlist[ ilist[ i - 1 ] ], 
+        RenderAddTriangle( &vlist[ ilist[ 0 ] ],
+                           &vlist[ ilist[ i - 1 ] ],
                            &vlist[ ilist[ i ] ],
                            true );
     }
@@ -123,7 +123,7 @@ grDrawPlanarPolygon( int nverts, const int ilist[], const GrVertex vlist[] )
 
     for ( int i = 2; i < nverts; i++ )
     {
-        RenderAddTriangle( &vlist[ ilist[ 0 ] ], 
+        RenderAddTriangle( &vlist[ ilist[ 0 ] ],
                            &vlist[ ilist[ i - 1 ] ],
                            &vlist[ ilist[ i ] ],
                            true );
@@ -162,7 +162,7 @@ grDrawPolygonVertexList( int nVertices, const GrVertex vlist[] )
 }
 
 FX_ENTRY void FX_CALL
-guAADrawTriangleWithClip( const GrVertex *a, const GrVertex *b, 
+guAADrawTriangleWithClip( const GrVertex *a, const GrVertex *b,
                           const GrVertex *c )
 {
 #ifdef OGL_CRITICAL
@@ -205,7 +205,7 @@ guDrawPolygonVertexListWithClip( int nverts, const GrVertex vlist[] )
 
     for ( int i = 2; i < nverts; i++ )
     {
-        RenderAddTriangle( &vlist[ 0 ], 
+        RenderAddTriangle( &vlist[ 0 ],
                            &vlist[ i - 1 ],
                            &vlist[ i ],
                            false );

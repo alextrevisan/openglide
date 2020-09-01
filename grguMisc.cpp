@@ -82,7 +82,7 @@ grCullMode( GrCullMode_t mode )
 //*************************************************
 //* Set the size and location of the hardware clipping window
 //*************************************************
-FX_ENTRY void FX_CALL 
+FX_ENTRY void FX_CALL
 grClipWindow( FxU32 minx, FxU32 miny, FxU32 maxx, FxU32 maxy )
 {
 #ifdef OGL_PARTDONE
@@ -102,7 +102,7 @@ grClipWindow( FxU32 minx, FxU32 miny, FxU32 maxx, FxU32 maxy )
     OpenGL.ClipMinY = OpenGL.WindowHeight * miny / Glide.WindowHeight;
     OpenGL.ClipMaxY = OpenGL.WindowHeight * maxy / Glide.WindowHeight;
 
-    if ( ( Glide.State.ClipMinX != 0 ) || 
+    if ( ( Glide.State.ClipMinX != 0 ) ||
          ( Glide.State.ClipMinY != 0 ) ||
          ( Glide.State.ClipMaxX != (FxU32) Glide.WindowWidth ) ||
          ( Glide.State.ClipMaxY != (FxU32) Glide.WindowHeight ) )
@@ -148,7 +148,7 @@ grClipWindow( FxU32 minx, FxU32 miny, FxU32 maxx, FxU32 maxy )
 }
 
 //*************************************************
-FX_ENTRY void FX_CALL 
+FX_ENTRY void FX_CALL
 grDisableAllEffects( void )
 {
 #ifdef OGL_PARTDONE
@@ -197,7 +197,7 @@ grHints( GrHint_t hintType, FxU32 hintMask )
 }
 
 //*************************************************
-/*
+
 FX_ENTRY void FX_CALL
 grSplash( float x, float y, float width, float height, FxU32 frame )
 {
@@ -206,10 +206,10 @@ grSplash( float x, float y, float width, float height, FxU32 frame )
         x, y, width, height, frame );
 #endif
 }
-*/
+
 
 //*************************************************
-FX_ENTRY void FX_CALL 
+FX_ENTRY void FX_CALL
 ConvertAndDownloadRle( GrChipID_t        tmu,
                        FxU32             startAddress,
                        GrLOD_t           thisLod,
@@ -235,7 +235,7 @@ ConvertAndDownloadRle( GrChipID_t        tmu,
 }
 
 //*************************************************
-FX_ENTRY void FX_CALL 
+FX_ENTRY void FX_CALL
 grCheckForRoom( FxI32 n )
 {
 #ifdef OGL_NOTDONE
@@ -255,16 +255,16 @@ grParameterData( FxU32 param, FxU32 components, FxU32 type, FxI32 offset )
 
 //*************************************************
 FX_ENTRY int FX_CALL
-guEncodeRLE16( void *dst, 
-               void *src, 
-               FxU32 width, 
+guEncodeRLE16( void *dst,
+               void *src,
+               FxU32 width,
                FxU32 height )
 {
 #ifdef OGL_NOTDONE
-    GlideMsg( "guEncodeRLE16( ---, ---, %lu, %lu ) = 1\n", width, height ); 
+    GlideMsg( "guEncodeRLE16( ---, ---, %lu, %lu ) = 1\n", width, height );
 #endif
 
-    return 1; 
+    return 1;
 }
 
 //*************************************************

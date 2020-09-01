@@ -14,7 +14,7 @@
 #include "GLRender.h"
 #include "Glextensions.h"
 #include "PGTexture.h"
-
+#include <algorithm>
 //**************************************************************
 // Defines
 //**************************************************************
@@ -44,8 +44,8 @@ static const float vertex_snap = float( 3L << 18 );
 RenderStruct OGLRender;
 
 // Varibles for the Add functions
-static TColorStruct     Local, 
-                        Other, 
+static TColorStruct     Local,
+                        Other,
                         CFactor;
 static float            AFactor[3];
 static TColorStruct     *pC,
@@ -53,16 +53,16 @@ static TColorStruct     *pC,
 static TVertexStruct    *pV;
 static TTextureStruct   *pTS;
 static TFogStruct       *pF;
-static void             *pt1, 
-                        *pt2, 
+static void             *pt1,
+                        *pt2,
                         *pt3;
 static float            atmuoow;
 static float            btmuoow;
 static float            ctmuoow;
-static float            aoow, 
-                        boow, 
+static float            aoow,
+                        boow,
                         coow;
-static float            hAspect, 
+static float            hAspect,
                         wAspect,
                         maxoow;
 
@@ -174,19 +174,19 @@ void RenderDrawTriangles( void )
     {
         glDisable( GL_ALPHA_TEST );
     }
-    else 
+    else
     {
         if ( Glide.State.AlphaTestFunction != GR_CMP_ALWAYS )
         {
             glEnable( GL_ALPHA_TEST );
         }
     }
-    
+
     if( !OpenGL.Blend && Glide.State.ChromaKeyMode )
     {
         glAlphaFunc( GL_GEQUAL, 0.5 );
         glEnable( GL_ALPHA_TEST );
-        
+
         glBegin( GL_TRIANGLES );
         for ( int i = 0; i < OGLRender.NumberOfTriangles; i++ )
         {
@@ -195,13 +195,13 @@ void RenderDrawTriangles( void )
             p_glFogCoordfEXT( OGLRender.TFog[ i ].af );
             glTexCoord4fv( &OGLRender.TTexture[ i ].as );
             glVertex3fv( &OGLRender.TVertex[ i ].ax );
-            
+
             glColor3fv( &OGLRender.TColor[ i ].br );
             p_glSecondaryColor3fvEXT( &OGLRender.TColor2[ i ].br );
             p_glFogCoordfEXT( OGLRender.TFog[ i ].bf );
             glTexCoord4fv( &OGLRender.TTexture[ i ].bs );
             glVertex3fv( &OGLRender.TVertex[ i ].bx );
-            
+
             glColor3fv( &OGLRender.TColor[ i ].cr );
             p_glSecondaryColor3fvEXT( &OGLRender.TColor2[ i ].cr );
             p_glFogCoordfEXT( OGLRender.TFog[ i ].cf );
@@ -209,7 +209,7 @@ void RenderDrawTriangles( void )
             glVertex3fv( &OGLRender.TVertex[ i ].cx );
         }
         glEnd( );
-        
+
         glDisable( GL_ALPHA_TEST );
     }
     else
@@ -232,7 +232,7 @@ void RenderDrawTriangles( void )
                     p_glMultiTexCoord4fvARB( GL_TEXTURE1_ARB, &OGLRender.TTexture[ i ].as );
                 }
                 glVertex3fv( &OGLRender.TVertex[ i ].ax );
-                
+
                 glColor4fv( &OGLRender.TColor[ i ].br );
                 p_glSecondaryColor3fvEXT( &OGLRender.TColor2[ i ].br );
                 p_glFogCoordfEXT( OGLRender.TFog[ i ].bf );
@@ -242,7 +242,7 @@ void RenderDrawTriangles( void )
                     p_glMultiTexCoord4fvARB( GL_TEXTURE1_ARB, &OGLRender.TTexture[ i ].bs );
                 }
                 glVertex3fv( &OGLRender.TVertex[ i ].bx );
-                
+
                 glColor4fv( &OGLRender.TColor[ i ].cr );
                 p_glSecondaryColor3fvEXT( &OGLRender.TColor2[ i ].cr );
                 p_glFogCoordfEXT( OGLRender.TFog[ i ].cf );
@@ -256,7 +256,7 @@ void RenderDrawTriangles( void )
             glEnd( );
         }
     }
-  
+
     if ( ! InternalConfig.EXT_secondary_color )
     {
         glBlendFunc( GL_ONE, GL_ONE );
@@ -545,9 +545,9 @@ void RenderAddTriangle( const GrVertex *a, const GrVertex *b, const GrVertex *c,
         pC->ca = 1.0f - pC->ca - pC2->ca;
         pC2->aa = pC2->ba = pC2->ca = 0.0f;
     }
-    
+
     // Z-Buffering
-    if ( ( Glide.State.DepthBufferMode == GR_DEPTHBUFFER_DISABLE ) || 
+    if ( ( Glide.State.DepthBufferMode == GR_DEPTHBUFFER_DISABLE ) ||
          ( Glide.State.DepthFunction == GR_CMP_ALWAYS ) )
     {
         pV->az = 0.0f;
@@ -573,7 +573,7 @@ void RenderAddTriangle( const GrVertex *a, const GrVertex *b, const GrVertex *c,
         {
             pV->az = pV->bz = pV->cz = 1.0f;
         }
-        else 
+        else
         if ( InternalConfig.PrecisionFix )
         {   // Fix precision to 16 integer bits.
             FxU16 w;
@@ -614,7 +614,7 @@ void RenderAddTriangle( const GrVertex *a, const GrVertex *b, const GrVertex *c,
 
     if ( OpenGL.Texture )
     {
-        maxoow = 1.0f / max( atmuoow, max( btmuoow, ctmuoow ) );
+        maxoow = 1.0f / std::max( atmuoow, std::max( btmuoow, ctmuoow ) );
 
         Textures->GetAspect( &hAspect, &wAspect );
 
@@ -653,7 +653,7 @@ void RenderAddTriangle( const GrVertex *a, const GrVertex *b, const GrVertex *c,
 //            pF->bf = 1.0f - pF->bf;
 //            pF->cf = 1.0f - pF->cf;
 //        }
-        
+
     #ifdef OGL_DEBUG
        DEBUG_MIN_MAX( pF->af, OGLRender.MaxF, OGLRender.MinF );
        DEBUG_MIN_MAX( pF->bf, OGLRender.MaxF, OGLRender.MinF );
@@ -665,7 +665,7 @@ void RenderAddTriangle( const GrVertex *a, const GrVertex *b, const GrVertex *c,
     DEBUG_MIN_MAX( pC->ar, OGLRender.MaxR, OGLRender.MinR );
     DEBUG_MIN_MAX( pC->br, OGLRender.MaxR, OGLRender.MinR );
     DEBUG_MIN_MAX( pC->cr, OGLRender.MaxR, OGLRender.MinR );
-    
+
     DEBUG_MIN_MAX( pC->ag, OGLRender.MaxG, OGLRender.MinG );
     DEBUG_MIN_MAX( pC->bg, OGLRender.MaxG, OGLRender.MinG );
     DEBUG_MIN_MAX( pC->cg, OGLRender.MaxG, OGLRender.MinG );
@@ -700,7 +700,7 @@ void RenderAddTriangle( const GrVertex *a, const GrVertex *b, const GrVertex *c,
 
     OGLRender.FrameTriangles++;
 #endif
-    
+
     OGLRender.NumberOfTriangles++;
 
     if ( OGLRender.NumberOfTriangles >= ( MAXTRIANGLES - 1 ) )
@@ -824,8 +824,8 @@ void RenderAddLine( const GrVertex *a, const GrVertex *b, bool unsnap )
     switch ( Glide.State.ColorCombineFunction )
     {
     case GR_COMBINE_FUNCTION_ZERO:
-        pC->ar = pC->ag = pC->ab = 0.0f; 
-        pC->br = pC->bg = pC->bb = 0.0f; 
+        pC->ar = pC->ag = pC->ab = 0.0f;
+        pC->br = pC->bg = pC->bb = 0.0f;
         break;
 
     case GR_COMBINE_FUNCTION_LOCAL:
@@ -1034,15 +1034,15 @@ void RenderAddLine( const GrVertex *a, const GrVertex *b, bool unsnap )
         pC->ba = 1.0f - pC->ba - pC2->ba;
         pC2->aa = pC2->ba = 0.0f;
     }
-    
+
     // Z-Buffering
-    if ( ( Glide.State.DepthBufferMode == GR_DEPTHBUFFER_DISABLE ) || 
+    if ( ( Glide.State.DepthBufferMode == GR_DEPTHBUFFER_DISABLE ) ||
          ( Glide.State.DepthBufferMode == GR_CMP_ALWAYS ) )
     {
         pV->az = 0.0f;
         pV->bz = 0.0f;
     }
-    else 
+    else
     if ( OpenGL.DepthBufferType )
     {
         pV->az = a->ooz * D1OVER65535;
@@ -1060,7 +1060,7 @@ void RenderAddLine( const GrVertex *a, const GrVertex *b, bool unsnap )
         {
             pV->az = pV->bz = 1.0f;
         }
-        else 
+        else
         if ( InternalConfig.PrecisionFix )
         {   // Fix precision to 16 integer bits.
             FxU16 w;
@@ -1120,7 +1120,7 @@ void RenderAddLine( const GrVertex *a, const GrVertex *b, bool unsnap )
 #ifdef OGL_DEBUG
     DEBUG_MIN_MAX( pC->ar, OGLRender.MaxR, OGLRender.MinR );
     DEBUG_MIN_MAX( pC->br, OGLRender.MaxR, OGLRender.MinR );
-    
+
     DEBUG_MIN_MAX( pC->ag, OGLRender.MaxG, OGLRender.MinG );
     DEBUG_MIN_MAX( pC->bg, OGLRender.MaxG, OGLRender.MinG );
 
@@ -1171,14 +1171,14 @@ void RenderAddLine( const GrVertex *a, const GrVertex *b, bool unsnap )
     {
         glDisable( GL_ALPHA_TEST );
     }
-    else 
+    else
     {
         if ( Glide.State.AlphaTestFunction != GR_CMP_ALWAYS )
         {
             glEnable( GL_ALPHA_TEST );
         }
     }
-    
+
     glBegin( GL_LINES );
         glColor4fv( &pC->ar );
         p_glSecondaryColor3fvEXT( &pC2->ar );
@@ -1288,7 +1288,7 @@ void RenderAddPoint( const GrVertex *a, bool unsnap )
     switch ( Glide.State.ColorCombineFunction )
     {
     case GR_COMBINE_FUNCTION_ZERO:
-        pC->ar = pC->ag = pC->ab = 0.0f; 
+        pC->ar = pC->ag = pC->ab = 0.0f;
         break;
 
     case GR_COMBINE_FUNCTION_LOCAL:
@@ -1440,14 +1440,14 @@ void RenderAddPoint( const GrVertex *a, bool unsnap )
         pC->aa = 1.0f - pC->aa - pC2->aa;
         pC2->aa = 0.0f;
     }
-    
+
     // Z-Buffering
-    if ( ( Glide.State.DepthBufferMode == GR_DEPTHBUFFER_DISABLE ) || 
+    if ( ( Glide.State.DepthBufferMode == GR_DEPTHBUFFER_DISABLE ) ||
          ( Glide.State.DepthBufferMode == GR_CMP_ALWAYS ) )
     {
         pV->az = 0.0f;
     }
-    else 
+    else
     if ( OpenGL.DepthBufferType )
     {
         pV->az = a->ooz * D1OVER65535;
@@ -1458,7 +1458,7 @@ void RenderAddPoint( const GrVertex *a, bool unsnap )
         {
             pV->az = 1.0f;
         }
-        else 
+        else
         if ( InternalConfig.PrecisionFix )
         {   // Fix precision to 16 integer bits.
             FxU16 w = (FxU16)((a->oow / D1OVER65535) + 0.5f);
@@ -1504,7 +1504,7 @@ void RenderAddPoint( const GrVertex *a, bool unsnap )
 
 #ifdef OGL_DEBUG
     DEBUG_MIN_MAX( pC->ar, OGLRender.MaxR, OGLRender.MinR );
-    
+
     DEBUG_MIN_MAX( pC->ag, OGLRender.MaxG, OGLRender.MinG );
 
     DEBUG_MIN_MAX( pC->ab, OGLRender.MaxB, OGLRender.MinB );
@@ -1547,14 +1547,14 @@ void RenderAddPoint( const GrVertex *a, bool unsnap )
     {
         glDisable( GL_ALPHA_TEST );
     }
-    else 
+    else
     {
         if ( Glide.State.AlphaTestFunction != GR_CMP_ALWAYS )
         {
             glEnable( GL_ALPHA_TEST );
         }
     }
-    
+
     glBegin( GL_POINTS );
         glColor4fv( &pC->ar );
         p_glSecondaryColor3fvEXT( &pC2->ar );
@@ -1674,9 +1674,9 @@ float AlphaFactorOne( float LocalAlpha, float OtherAlpha )
 
 void ColorFunctionZero( TColorStruct * pC, TColorStruct * pC2, TColorStruct * Local, TColorStruct * Other )
 {
-    pC->ar = pC->ag = pC->ab = 0.0f; 
-    pC->br = pC->bg = pC->bb = 0.0f; 
-    pC->cr = pC->cg = pC->cb = 0.0f; 
+    pC->ar = pC->ag = pC->ab = 0.0f;
+    pC->br = pC->bg = pC->bb = 0.0f;
+    pC->cr = pC->cg = pC->cb = 0.0f;
 }
 
 void ColorFunctionLocal( TColorStruct * pC, TColorStruct * pC2, TColorStruct * Local, TColorStruct * Other )

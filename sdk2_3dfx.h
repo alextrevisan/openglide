@@ -67,7 +67,7 @@ typedef struct { float r, g, b, a; } FxColor4;
 #  define FX_CALL __stdcall
 #elif defined(__MSC__)
 #  if defined (MSVC16)
-#    define FX_ENTRY 
+#    define FX_ENTRY
 #    define FX_CALL
 #  else
 #    define FX_ENTRY extern
